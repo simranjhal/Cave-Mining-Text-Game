@@ -8,7 +8,7 @@ public class Stronghold
         private String command;
 
         public void activityS(Inventory inventory, Score score){
-            final String RESET = "\u001B[0m";
+            final String RESET = "\u001B[0m"; //values for the colours of the text
             final String PURPLE = "\u001B[35m";
             
             Scanner scanner = new Scanner(System.in);
@@ -23,14 +23,14 @@ public class Stronghold
             System.out.println(PURPLE + "Welcome to my Stronghold, can you help me cast my spell to create my potion?" + RESET );
 
             command = scanner.nextLine();
-            boolean correct = false;
+            boolean correct = false; //initliase variables to check when the user enters the correct spell
             boolean right = false;
             
             System.out.println(PURPLE + "Just repeat after me :" + RESET );
             System.out.println(PURPLE + "When I rise I see the sunshine, but not at night." + RESET );
             command = scanner.nextLine();
             
-            while(!correct){
+            while(!correct){ //loops that repeats until the user enters the correct spells
                 if(!command.equals("When I rise I see the sunshine, but not at night.")){
                     System.out.println(PURPLE + "Just repeat after me :" + RESET );
                     System.out.println(PURPLE + "When I rise I see the sunshine, but not at night." + RESET );

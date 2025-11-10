@@ -1,36 +1,34 @@
 package org.uob.a1;
 
-public class Inventory {
-    private String item;      
+public class Inventory {  
     public int numberItems = 0;
     final int MAX_ITEMS = 10;
-    public int indexItem = 0;
-    public String Inventory[];
+    public String inventory[];
 
     public Inventory(){
-        Inventory = new String[MAX_ITEMS]; //initialising the array to hold 10 items
+        inventory = new String[MAX_ITEMS]; //initialising the array to hold 10 items
 
-        Inventory[0] = "Silver Ingots";
-        Inventory[1] = "Flint & Steel";
-        Inventory[2] = "Crafting Table";
-        Inventory[3] = "Torch";
+        inventory[0] = "Silver Ingots"; //the inital four items in the inventory
+        inventory[1] = "Flint & Steel";
+        inventory[2] = "Crafting Table";
+        inventory[3] = "Torch";
 
         numberItems = 4; //updating the number of items in the array (variable)
         
     }
 
-    public int hasItem(String item){
+    public int hasItem(String item){ //finds the position of the item in the array
         item = item.trim();
         
-        for(int i = 0; i < numberItems; i++){
-            if(Inventory[i] != null && Inventory[i].equalsIgnoreCase(item)){
+        for(int i = 0; i < numberItems; i++){ 
+            if(inventory[i] != null && inventory[i].equalsIgnoreCase(item)){
                 return i;
             }
         }
         return -1;
     }
 
-    public void removeItem(String item) //placing blocks & removing from inventory
+    public void removeItem(String item) //removing an item once it has been used
     {
         item = item.trim();
         
@@ -41,42 +39,25 @@ public class Inventory {
         }
 
         for(int i = index; i < numberItems -1; i++){ //loops through to update the new positions of the items in the array
-            Inventory[i] = Inventory[i + 1];
+            inventory[i] = inventory[i + 1];
         }
-        Inventory[numberItems - 1] = null; //sets the last index to null
+        inventory[numberItems - 1] = null; //sets the last index to null
         numberItems--; //updates the new total 
     }
 
 
-    public void addItem(String command)//picking up items and adds to the array 
+    public void addItem(String item)//picking up items and adds to the array 
     {
-        String item = command.trim();
-            /*switch (command) {
-            case "take blocks" -> "Nether blocks";
-            case "craft bucket" -> "Empty Bucket";
-            case "take water" -> "Water Bucket";
-            case "mine diamonds" -> "Diamonds";
-            case "take sword" -> "Sword";
-            default -> null;*/
-        
+        item = item.trim();
 
         if (hasItem(item) != -1){
             return;
         }
         
-
-        if (numberItems < MAX_ITEMS){
-            Inventory[numberItems++] = item;
+        if (numberItems < MAX_ITEMS){ 
+            inventory[numberItems++] = item; //adds to the next available space
         }
     }
-        
-        /*if (item != null) {
-             Inventory[numberItems++] = item;
-            System.out.println("Added " + item);
-        } else {
-            System.out.println("Unknown command: " + command);
-        }*/
-        
     
 
     public String displayInventory()
@@ -85,7 +66,7 @@ public class Inventory {
         
         for(int i=0; i < numberItems; i ++) //loops and adds to concatenate a string
         {
-            result += Inventory[i];
+            result += inventory[i];
             if(i < numberItems - 1) result += ", ";
         }
         return result;

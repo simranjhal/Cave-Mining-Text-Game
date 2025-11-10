@@ -26,7 +26,7 @@ public class Game {
             System.out.println("You are inside a dark cave, there are torches showing three hallways to take : South, West and East");
             
             String command = "";
-            Score score = new Score(1000.0);
+            Score score = new Score();
             Position position = new Position(1, 0);
 
             while (!command.equals("quit")){
@@ -63,10 +63,10 @@ public class Game {
                         command = scanner.nextLine();
                         position.update(command);
                         if(command.equals("move south")){ //RAVINE
-                            position.update(command);
-                            ravine.puzzleR(inventory, score);
-                            map.placeRoom(position, 'r');
-                            score.visitRoom("Ravine");
+                            position.update(command); //updates the position on the map 
+                            ravine.puzzleR(inventory, score); //call upon the rooms class
+                            map.placeRoom(position, 'r'); //unlocks the area on the map
+                            score.visitRoom("Ravine"); //updates the score
                         }
 
                         System.out.println("Let's follow the stream South");

@@ -16,10 +16,10 @@ public class Ravine{
             command = scanner.nextLine();
             
             if(command.equals("place torch")){
-                inventory.removeItem("Torch");
+                inventory.removeItem("Torch"); //torch has been placed so is removed from inventory
 
                 System.out.println("Take a closer look at the room.");
-                command = scanner.nextLine();
+                command = scanner.nextLine(); //'look' command is called upon
                 if(command.equals("look")){
                     System.out.println(ravine.getDescription());
                 }
@@ -39,7 +39,7 @@ public class Ravine{
 
                         command = scanner.nextLine();
                         if(command.equals("mine diamonds")){
-                            inventory.addItem(command);
+                            inventory.addItem(command); //adds the diamonds to inventory
                             System.out.println("Look at how shiny it is.");
                             command = scanner.nextLine();
                             System.out.println("You are holding a diamond. It is blue and is almost blinding you with its shine.");

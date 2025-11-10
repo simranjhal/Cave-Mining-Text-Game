@@ -20,7 +20,7 @@ public class Lake{
         System.out.println("Which do you take?");
 
         command = scanner.nextLine();
-        if(command.equals("bridge")){
+        if(command.equals("bridge")){ //output depending on which path the user wants to take
             System.out.println("You cross the bridge safely, with a few halts");
         }
         else if(command.equals("swim")){

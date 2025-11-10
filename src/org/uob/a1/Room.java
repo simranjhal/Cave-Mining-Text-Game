@@ -20,7 +20,7 @@ public class Room {
         return name;
     }
 
-    public String getDescription()
+    public String getDescription() //will return the relevant desc of the room when called upon in 'look'
     {
         return description;
     }

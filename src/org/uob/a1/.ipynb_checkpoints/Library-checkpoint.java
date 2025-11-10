@@ -19,7 +19,7 @@ public class Library{
         System.out.println("  lol  ");
         System.out.println("Pick up the book on the floor and put it back.");
 
-        command = scanner.nextLine();
+        command = scanner.nextLine(); //allow the user to pick up the fallen books
 
         System.out.println("Great, you carry on West.");
 

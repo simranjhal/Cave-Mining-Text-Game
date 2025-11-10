@@ -26,7 +26,7 @@ public class Game {
             System.out.println("You are inside a dark cave, there are torches showing three hallways to take : South, West and East");
             
             String command = "";
-            Score score = new Score(1000.0);
+            Score score = new Score();
             Position position = new Position(1, 0);
 
             while (!command.equals("quit")){

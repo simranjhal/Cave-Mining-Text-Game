@@ -37,14 +37,14 @@ public class LavaArea
             System.out.println("Perfect! Now collect the water on your left.");
             command = scanner.nextLine();
             
-            if(command.equals("look left"))
+            if(command.equals("look left")) //turn to face the water 
             {
                 System.out.println("There is a pool of water here");
                 System.out.println("Collect this water");
                 command = scanner.nextLine();
 
                 if(command.equals("take water")){
-                    inventory.addItem(command);
+                    inventory.addItem(command); //adds 'water bucket' to the inventory
                     System.out.println("You now have a water bucket to put out the lava");
                     System.out.println("Put out the fire on your right");
 
@@ -55,9 +55,9 @@ public class LavaArea
 
                         command = scanner.nextLine();
 
-                        if(command.equalsIgnoreCase("place water bucket")){ //ensujre it is trimmed and case insensitive
+                        if(command.equalsIgnoreCase("place water bucket")){ //ensure it is trimmed and case insensitive
                             inventory.hasItem("Water Bucket");
-                            inventory.removeItem("Water Bucket");
+                            inventory.removeItem("Water Bucket"); //removes water bucket from inventory and replace with an empty one
                             
                             System.out.println("The lava has been put out!");
                             System.out.println("No more dangers have been detected!");
@@ -69,7 +69,7 @@ public class LavaArea
                 
             }
 
-            score.visitRoom("Lava Area");
+            score.solvePuzzle();
         }
         
     }

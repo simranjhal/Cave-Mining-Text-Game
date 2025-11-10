@@ -2,38 +2,43 @@ package org.uob.a1;
 import org.uob.a1.Score;
 
 public class Score {
-    private double startingScore = 1000.0;
-    private double currentScore = 1000.0;
-    public double roomsVisited= 0.0;
-    public double puzzlesSolved = 0.0;
+    private double startingScore;
+    private double currentScore;
+    public double roomsVisited;
+    public double puzzlesSolved;
     private final int PUZZLE_VALUE = 10;
 
-    public Score(double startingScore)
+    public Score() //inital constructor class
     {
-        this.startingScore = startingScore;
+        this.startingScore = 1000.0;
+        this.currentScore = startingScore;
+        this.roomsVisited = 0.0;
+        this.puzzlesSolved = 0.0;
     }
 
-    public void visitRoom(String room)
+    public Score(double startingScore) { //constructor class to take a value 
+        this.startingScore = startingScore;
+        this.currentScore = startingScore;
+        this.roomsVisited = 0;
+        this.puzzlesSolved = 0;
+    }
+
+    public void visitRoom() //updates when called upon in one of the room classes
     {
         roomsVisited += 1.0;
-
-        if(room.equals("Lava Area") || room.equals("Nether Portal")){
-            puzzlesSolved += 1.0;
-        }
         
     }
-    public void visitRoom() {
-        roomsVisited += 1.0;
+    public void visitRoom(String room) {
+        visitRoom();
     }
 
-    // Add solvePuzzle() method (expected by tests)
-    public void solvePuzzle() {
+    public void solvePuzzle() { //increments in either Lava Area or NetherHold once the puzzles has been successfully solved
         puzzlesSolved += 1.0;
     }
 
-    public double getScore()
+    public double getScore() //displays the score
     {
-        currentScore = (startingScore - roomsVisited + puzzlesSolved) * PUZZLE_VALUE;
+        currentScore = startingScore - (roomsVisited * PUZZLE_VALUE) + (puzzlesSolved * PUZZLE_VALUE);
         return(currentScore);
     }
         

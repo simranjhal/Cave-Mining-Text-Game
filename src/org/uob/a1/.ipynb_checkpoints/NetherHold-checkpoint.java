@@ -32,11 +32,11 @@ public class NetherHold{
                 System.out.println("Take its armour so you can equip it yourself!");
                 command = scanner.nextLine();
 
-                inventory.addItem(command);
+                inventory.addItem(command); //adds armour to the inventory as the player has equipped it
                 score.visitRoom("Nether Portal");
                 
             }
-
+            score.solvePuzzle();
         }
             
     

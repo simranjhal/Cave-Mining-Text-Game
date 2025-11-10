@@ -9,7 +9,7 @@ public class Map {
 
     final private char EMPTY = '.';
     
-    public Map(int width, int height)
+    public Map(int width, int height) //constructor class
     {
         this.width = width;
         this.height = height;
@@ -25,13 +25,13 @@ public class Map {
             }
     }
 
-    public Map() {
+    public Map() { //instanstiate the values of the map
         this(8, 6); // default size (swapped if you like)
     }
 
     public void placeRoom(Position pos, char symbol)
     {
-        if(pos.equals("lava area"))
+        if(pos.equals("lava area")) //assign the symbols to the relevant rooms
            {
             symbol = 'L'; 
            }
@@ -73,15 +73,15 @@ public class Map {
            }
        
         if (pos.getY() < height && pos.getX() < width && pos.getY() >= 0 && pos.getX() >= 0) {
-            map[pos.getY()][pos.getX()] = symbol;
+            map[pos.getY()][pos.getX()] = symbol; //updates the map accordingly when called upon
         }
     }
 
-    public String display()
+    public String display() //outputting the map when called upon
     {
         StringBuilder outputMap = new StringBuilder();
             
-        for(int row =0; row < width; row ++)
+        for(int row =0; row < width; row ++) //loops and changes line at the end of the x co-ordinates
         {
             for(int col = 0; col < height; col++)
             {
